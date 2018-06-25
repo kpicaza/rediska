@@ -120,7 +120,9 @@ class Rediska_Zend_Session_SaveHandler_Redis extends Rediska_Options_RediskaInst
      */
     public function read($id)
     {
-        return $this->getRediska()->get($this->_getKeyName($id));
+        $sessionData = $this->getRediska()->get($this->_getKeyName($id)); 
+        
+        return $sessionData ? $sessionData : '';
     }
 
     /**
